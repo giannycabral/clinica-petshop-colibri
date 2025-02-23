@@ -1,0 +1,1349 @@
+/* 1. Variáveis e Reset */
+:root {
+    --primary: #2b6cb0;
+    --primary-light: #4299e1;
+    --primary-dark: #1a365d;
+    --secondary: #38a169;
+    --secondary-light: #48bb78;
+    --accent: #ff6f61;
+    --text-dark: #2d3748;
+    --text-light: #718096;
+    --background: #f7fafc;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. Estilos Base */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.8;
+    color: var(--text-dark);
+    background: var(--background);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Layout mais limpo e minimalista */
+.wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* 3. Navegação */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--primary-dark);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 6px var(--shadow);
+    height: 70px;
+    /* Altura fixa reduzida */
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0.3rem 20px;
+    /* Reduzido padding vertical */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+}
+
+.logo img {
+    height: 60px;
+    /* Reduzido de 200px para 60px */
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+    margin: 0;
+    /* Removidas as margens */
+}
+
+.nav-links a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 0.95rem;
+    /* Adicionado tamanho de fonte menor */
+    position: relative;
+    padding: 0.3rem 0;
+    /* Reduzido de 0.5rem para 0.3rem */
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* 4. Hero Section */
+/* Hero mais simples */
+.hero {
+    width: 100%;
+    height: calc(100vh - 70px);
+    /* Ajustado para a nova altura da navbar */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('../img/bkg.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 70px;
+    /* Ajustado para nova altura da navbar */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Atualização dos botões do hero */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--secondary);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(56, 161, 105, 0.3);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-button:hover {
+    background: var(--secondary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 161, 105, 0.4);
+}
+
+.cta-button:active {
+    transform: translateY(1px);
+}
+
+/* Remover estilos específicos do botão secundário */
+.cta-button.secondary {
+    background: var(--secondary);
+    /* Mesmo background do primário */
+    color: var(--white);
+    /* Mesma cor do texto */
+    border: none;
+    /* Remove a borda */
+}
+
+.cta-button.secondary:hover {
+    background: var(--secondary-light);
+    /* Mesmo hover do primário */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 161, 105, 0.4);
+}
+
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+    .hero {
+        height: calc(100vh - 60px);
+        background-attachment: scroll;
+        margin-top: 60px;
+    }
+
+    .logo img {
+        height: 50px;
+        /* Menor em mobile */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .cta-button {
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        margin-left: 1.5rem;
+    }
+
+    .navbar {
+        height: 60px;
+        /* Ainda menor em mobile */
+    }
+}
+
+/* 5. Seções de Conteúdo */
+/* 5.1 Sobre */
+.sobre {
+    padding: 4rem 0;
+}
+
+.sobre-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.sobre-texto p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.sobre-imagens {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.imagem-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.imagem-container img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.imagem-container span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    color: var(--white);
+    text-align: center;
+    font-weight: 500;
+}
+
+.imagem-container:hover {
+    transform: translateY(-5px);
+}
+
+.imagem-container:hover img {
+    transform: scale(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .sobre-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .sobre-imagens {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .sobre-imagens {
+        grid-template-columns: 1fr;
+    }
+
+    .imagem-container img {
+        height: 250px;
+    }
+}
+
+/* 5.2 Serviços */
+.servicos {
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* Grid de 3 colunas para serviços */
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 1.5rem;
+}
+
+.servico {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.servico:hover {
+    transform: translateY(-5px);
+}
+
+.servico i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s ease;
+}
+
+.servico:hover i {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.servico h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.servico p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* 5.3 Preços */
+.price-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    padding: 1.5rem;
+}
+
+.price-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px var(--shadow);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin: 0.5rem;
+    border: 2px solid transparent;
+}
+
+.price-card:hover {
+    transform: translateY(-8px) scale(1.01);
+}
+
+.price-card:hover .price {
+    transform: scale(1.1);
+    color: var (--secondary);
+}
+
+.price-card h3 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin: 1.5rem 0;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.price-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.price-card ul li {
+    margin: 1rem 0;
+    color: var (--text-dark);
+}
+
+.price-card .cta-button {
+    width: 80%;
+    margin: 1rem auto;
+    display: block;
+}
+
+/* Remover estilos específicos do featured */
+.price-card.featured {
+    background: var(--white);
+    /* Mesmo fundo do card normal */
+    color: var(--text-dark);
+    /* Mesma cor de texto */
+    transform: none;
+    /* Remove o deslocamento */
+}
+
+.price-card.featured h3,
+.price-card.featured .price {
+    color: var(--primary);
+    /* Mesma cor dos títulos */
+}
+
+/* Hover igual para todos os cards */
+.price-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 8px 30px rgba(43, 108, 176, 0.15);
+}
+
+/* 5.4 Galeria */
+.galeria {
+    padding: 4rem 0;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    /* Reduzido de 1.5fr para 1.2fr */
+    gap: 2rem;
+    padding: 1.5rem;
+}
+
+.galeria-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.galeria-item.principal {
+    height: 500px;
+    /* Altura fixa mais proporcional */
+    grid-row: span 2;
+}
+
+.galeria-secundaria {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    /* Aumentado de 1rem para 1.5rem */
+}
+
+.galeria-secundaria .galeria-item {
+    height: 240px;
+    /* Altura fixa para manter proporção */
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.galeria-legenda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: var(--white);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.galeria-legenda h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.galeria-legenda p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Efeitos hover */
+.galeria-item:hover {
+    transform: translateY(-5px);
+}
+
+.galeria-item:hover img {
+    transform: scale(1.1);
+}
+
+.galeria-item:hover .galeria-legenda {
+    transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-item.principal {
+        height: 400px;
+    }
+
+    .galeria-secundaria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .galeria-secundaria .galeria-item {
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .galeria-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .galeria-item.principal {
+        height: 350px;
+    }
+
+    .galeria-secundaria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .galeria-secundaria .galeria-item {
+        height: 180px;
+    }
+
+    .galeria-item img {
+        height: 250px;
+    }
+
+    .galeria-legenda {
+        transform: translateY(0);
+        background: rgba(0, 0, 0, 0.7);
+    }
+}
+
+@media (max-width: 576px) {
+    .galeria-secundaria {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-item {
+        height: 250px;
+    }
+}
+
+/* 5.5 Depoimentos */
+.depoimentos {
+    padding: 4rem 0;
+    text-align: center;
+    background: var(--background);
+}
+
+.depoimentos-grid {
+    display: flex;
+    /* Alterado para flex */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: stretch;
+    /* Alinha items com mesma altura */
+    gap: 2rem;
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.depoimento {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: calc(33.333% - 1.33rem);
+    /* Define largura fixa para 3 colunas */
+    flex: 0 0 auto;
+    /* Evita que os cards estichem */
+}
+
+.cliente-foto {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary);
+}
+
+.cliente-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avaliacao {
+    margin: 0.8rem 0;
+}
+
+.avaliacao i {
+    color: #FFD700;
+    /* Amarelo dourado */
+    font-size: 1.2rem;
+    margin: 0 2px;
+}
+
+/* Opcional: efeito hover nas estrelas */
+.avaliacao i:hover {
+    color: #FFC107;
+    /* Tom mais escuro de amarelo no hover */
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.depoimento:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .depoimentos-grid {
+        flex-wrap: nowrap;
+        /* Mantém em linha única */
+        overflow-x: auto;
+        /* Permite rolagem horizontal */
+        padding-bottom: 1rem;
+        /* Espaço para a barra de rolagem */
+    }
+
+    .depoimento {
+        width: 300px;
+        /* Largura fixa em telas menores */
+    }
+}
+
+/* 5.6 Contato */
+.contato {
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* Contato em 2 colunas */
+.contato-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.contato-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.contato-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px var(--shadow);
+}
+
+.contato-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.contato-card i {
+    margin-right: 0.5rem;
+}
+
+.contato-card p {
+    margin: 0.5rem 0;
+}
+
+/* Ajuste do card de email */
+.contato-card.email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    /* Altura mínima para alinhar com outros cards */
+}
+
+.contato-card.email h3 {
+    margin-bottom: 1.5rem;
+}
+
+.contato-card.email p {
+    font-size: 1.1rem;
+    color: var (--text-dark);
+    word-break: break-word;
+    text-align: center;
+}
+
+/* 6. Componentes */
+/* 6.1 Botões */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--secondary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid transparent;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(56, 161, 105, 0.3);
+    transform: translateY(0);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-button:hover {
+    background: var(--secondary-light);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(56, 161, 105, 0.3);
+}
+
+.cta-button:active {
+    transform: translateY(1px);
+}
+
+/* 6.2 WhatsApp Buttons */
+.whatsapp-buttons {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 1000;
+}
+
+.whatsapp-button {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-weight: bold;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.whatsapp-button i {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.whatsapp-button span {
+    font-size: 0.9rem;
+}
+
+.whatsapp-button.clinica {
+    background: var(--primary);
+}
+
+.whatsapp-button.petshop {
+    background: var(--secondary);
+}
+
+.whatsapp-button:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-button:hover i {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 7. Footer */
+footer {
+    width: 100%;
+    background: var(--primary-dark);
+    color: var(--white);
+    padding: 4rem 0 1rem;
+    margin-top: auto;
+}
+
+.footer-content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    padding: 0 20px;
+}
+
+.footer-info {
+    text-align: left;
+}
+
+.footer-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    /* Aumentado para compensar a remoção da logo */
+    color: var(--white);
+}
+
+/* Remover estilos da logo */
+.footer-logo {
+    display: none;
+    /* ou remova completamente este bloco */
+}
+
+.footer-info p {
+    margin: 0.7rem 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.footer-info p i {
+    margin-right: 10px;
+    color: var(--secondary-light);
+}
+
+.footer-social {
+    text-align: left;
+}
+
+.footer-social h3 {
+    color: var(--white);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: flex-start;
+}
+
+.social-links a {
+    color: var(--white);
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    /* Remove o underline */
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+    text-decoration: none;
+    /* Mantém sem underline mesmo no hover */
+}
+
+.social-links a.facebook:hover {
+    background: #1877f2;
+    box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
+}
+
+.social-links a.instagram:hover {
+    background: #e4405f;
+    box-shadow: 0 5px 15px rgba(228, 64, 95, 0.4);
+}
+
+.footer-bottom {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
+    .footer-info,
+    .footer-social {
+        text-align: center;
+    }
+
+    .footer-info p {
+        justify-content: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-logo {
+        height: 65px;
+        margin: 0 auto 2rem;
+    }
+
+    .footer-bottom {
+        margin-top: 2.5rem;
+    }
+}
+
+/* 8. Utilities */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+/* 9. Media Queries */
+@media (max-width: 1440px) {
+
+    .wrapper,
+    .nav-container,
+    section,
+    .container,
+    .footer-content {
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 1220px) {
+    .wrapper {
+        max-width: 100%;
+    }
+
+    section {
+        max-width: 100%;
+        padding: 5rem 20px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .wrapper {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    .price-cards,
+    .servicos-grid,
+    .depoimentos-grid,
+    .galeria-grid {
+        gap: 2rem;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .wrapper,
+    .nav-container,
+    section,
+    .container,
+    .footer-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        margin-top: 1rem;
+    }
+
+    .nav-links a {
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 3rem 0;
+    }
+
+    .price-card.featured {
+        transform: none;
+    }
+
+    .galeria-item img {
+        height: 200px;
+    }
+
+    .depoimento-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hero {
+        height: 80vh;
+        padding: 0 20px;
+        background-attachment: scroll;
+    }
+
+    .wrapper {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        padding: 1rem;
+    }
+
+    section {
+        width: 100%;
+        margin: 1rem auto;
+        padding: 1.5rem;
+        border-radius: 4px;
+    }
+
+    .hero {
+        height: 80vh;
+    }
+
+    .wrapper {
+        margin: 0;
+        border-radius: 0;
+    }
+
+    section {
+        margin: 1rem auto;
+        border-radius: 4px;
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .hero {
+        background-attachment: scroll;
+        /* Remove parallax em mobile */
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .whatsapp-buttons {
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    .whatsapp-button {
+        padding: 0.6rem 1rem;
+    }
+
+    .whatsapp-button span {
+        font-size: 0.8rem;
+    }
+
+    .whatsapp-button i {
+        font-size: 1.2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-social {
+        text-align: center;
+    }
+
+    .footer-social a {
+        margin: 0 0.75rem;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+
+    .social-links a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .contato-card.email {
+        min-height: 180px;
+    }
+
+    .contato-card.email p {
+        font-size: 1rem;
+    }
+
+    .logo img {
+        height: 50px;
+        /* Menor em mobile */
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .footer-logo {
+        height: 65px;
+        /* Aumentado de 50px */
+    }
+
+    .servicos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contato-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Adicionar padrão sutil ao fundo */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/pattern.png');
+    opacity: 0.05;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Efeitos de hover suaves */
+.galeria-item:hover,
+.depoimento:hover,
+.price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px var(--shadow);
+}
+
+/* Estilo global para títulos */
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+/* Linha decorativa sob os títulos */
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gradient);
+    border-radius: 2px;
+}
+
+/* 5.7 Equipe */
+.equipe {
+    padding: 4rem 0;
+    background: var(--background);
+}
+
+.equipe-descricao {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    color: var(--text-dark);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.membro-equipe {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow);
+    aspect-ratio: 1;
+    transition: transform 0.3s ease;
+}
+
+.membro-equipe img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.membro-equipe:hover {
+    transform: translateY(-5px);
+}
+
+.membro-equipe:hover img {
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .equipe-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .equipe-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
