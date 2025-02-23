@@ -44,7 +44,7 @@ meu-projeto-web/
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/colibri-website.git
+git clone https://github.com/giannycabral/clinica-petshop-colibri.git
 ```
 
 2. Navegue até a pasta do projeto:
