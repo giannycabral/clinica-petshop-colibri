@@ -75,6 +75,5 @@ O site se adapta perfeitamente a diferentes dispositivos:
 
 Desenvolvido com 💙 por [Gianny Cabral](https://github.com/giannycabral)
 
-## 📄 Licença
-
-Este projeto está sob a licença MIT - veja o arquivo [LICENSE.md](LICENSE.md) para detalhes
+---
+⭐ Se você gostou deste projeto, considere deixar uma estrela!
