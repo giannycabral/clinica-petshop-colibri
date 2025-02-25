@@ -838,8 +838,8 @@ body {
     border-radius: 50px;
 
     /* Aparência */
-    background: var(--secondary);
-    color: var(--white);
+    background: var (--secondary);
+    color: var (--white);
     text-decoration: none;
     border: 2px solid transparent;
 
@@ -1623,6 +1623,104 @@ h2::after {
     }
 }
 
+/* 5.8 Seção Visita */
+.visita {
+    padding: 4rem 0;
+    background: var(--white);
+}
+
+.visita h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.visita>p {
+    text-align: center;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.visita-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.visita-imagem-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+.visita-imagem {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    box-shadow: var(--shadow-md);
+}
+
+.visita-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.visita-imagem:hover img {
+    transform: scale(1.1);
+}
+
+.visita .cta-button {
+    margin-top: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .visita>p {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .visita {
+        padding: 3rem 0;
+    }
+
+    .visita-imagem-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .visita>p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .visita .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .visita {
+        padding: 2rem 0;
+    }
+
+    .visita-content {
+        padding: 0 1rem;
+    }
+}
+
 /* Otimizações de performance */
 .all-transitions {
     will-change: transform;
@@ -1633,7 +1731,7 @@ h2::after {
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+        animation-iteration-count: 1 !iant;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
