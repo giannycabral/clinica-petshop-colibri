@@ -1823,3 +1823,59 @@ h2::after {
 .animate-fade-in {
     animation: fadeIn var(--transition-medium) ease-out forwards;
 }
+
+.horario-funcionamento {
+    margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+}
+
+.horario-funcionamento h4 {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.horarios {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.horarios tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.horarios tr:last-child {
+    border-bottom: none;
+}
+
+.horarios td {
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.horarios td:last-child {
+    text-align: right;
+    font-weight: 500;
+}
+
+.horarios tr.fechado td {
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .horario-funcionamento {
+        padding: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .horarios td {
+        font-size: 0.85rem;
+        padding: 0.4rem 0;
+    }
+}
