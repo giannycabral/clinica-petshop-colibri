@@ -774,10 +774,10 @@ body {
 /* Contato em 2 colunas */
 .contato-info {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 300px;
+    /* Ajustado para dar mais espaço ao mapa */
     gap: 2rem;
     padding: 1.5rem;
-    margin-bottom: 3rem;
 }
 
 .contato-card {
@@ -827,6 +827,128 @@ body {
     color: var (--text-dark);
     word-break: break-word;
     text-align: center;
+}
+
+/* Ajuste o container dos detalhes de contato */
+.contato-detalhes {
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+/* 5.6 Seção Contato - Versão otimizada */
+.contato {
+    padding: 4rem 0;
+    background: var(--background);
+}
+
+.contato h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contato-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* Alterado para dar mais espaço ao mapa */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Estilo do mapa */
+.mapa {
+    width: 100%;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.mapa iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+}
+
+/* Estilo dos detalhes de contato */
+.contato-detalhes {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.contato-detalhes h3 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.contato-detalhes p {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.contato-detalhes i {
+    color: var(--primary);
+    font-size: 1.2rem;
+    width: 24px;
+    /* Largura fixa para alinhamento */
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .contato-info {
+        grid-template-columns: 1fr;
+    }
+
+    .mapa {
+        order: 2;
+        /* Mapa abaixo dos detalhes em telas menores */
+    }
+
+    .contato-detalhes {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .contato {
+        padding: 3rem 0;
+    }
+
+    .contato-info {
+        padding: 0 1rem;
+    }
+
+    .mapa iframe {
+        height: 350px;
+    }
+
+    .contato-detalhes {
+        padding: 1.5rem;
+    }
+
+    .contato-detalhes h3 {
+        font-size: 1.2rem;
+    }
+
+    .contato-detalhes p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .mapa iframe {
+        height: 300px;
+    }
 }
 
 /* 6. Componentes */
@@ -950,209 +1072,151 @@ body {
     }
 }
 
-/* 7. Footer - Versão mais compacta */
-footer {
-    width: 100%;
-    background: var(--primary-dark);
-    color: var(--white);
-    padding: 2rem 0 1rem;
-    /* Reduzido de 4rem para 2rem */
-    margin-top: auto;
-}
-
+/* 7. Footer - Versão otimizada */
 .footer-content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    /* Reduzido de 2rem para 1.5rem */
-    padding: 1.5rem;
-    /* Reduzido de 3rem 2rem para 1.5rem */
+    /* Alterado para 3 colunas */
+    gap: 2rem;
+    padding: 2rem;
     background: var(--primary-dark);
     color: var(--white);
+    text-align: center;
 }
 
-.footer-info {
-    text-align: left;
-}
-
-.footer-info h3 {
-    font-size: 1.4rem;
-    /* Reduzido de 1.8rem */
-    margin-bottom: 1rem;
-    /* Reduzido de 2rem */
+.footer-info h3,
+.footer-hours h3,
+.footer-payment h3,
+.footer-social h3 {
     color: var(--white);
-}
-
-/* Remover estilos da logo */
-.footer-logo {
-    display: none;
-    /* ou remova completamente este bloco */
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 .footer-info p {
-    margin: 0.5rem 0;
-    /* Reduzido de 0.7rem */
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.9rem;
-    /* Reduzido de 1.1rem */
-    display: flex;
-    align-items: center;
-}
-
-.footer-info p i {
-    margin-right: 10px;
-    color: var(--secondary-light);
-}
-
-.footer-social {
-    text-align: left;
-}
-
-.footer-social h3 {
-    color: var(--white);
-    margin-bottom: 1rem;
-    /* Reduzido de 2rem */
-    font-size: 1.4rem;
-    /* Reduzido de 1.8rem */
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-    /* Reduzido de 1.2rem */
-    justify-content: flex-start;
-}
-
-.social-links a {
-    color: var(--white);
-    font-size: 1.2rem;
-    /* Reduzido de 1.5rem */
-    width: 35px;
-    /* Reduzido de 45px */
-    height: 35px;
-    /* Reduzido de 45px */
+    margin: 0.5rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Horários */
+.footer-hours .horarios {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.footer-hours .horarios td {
+    padding: 0.3rem 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-hours .horarios td:first-child {
+    text-align: left;
+    padding-right: 1rem;
+}
+
+.footer-hours .horarios td:last-child {
+    text-align: right;
+    font-weight: 500;
+}
+
+.footer-hours .horarios tr.fechado td {
+    color: var(--accent);
+}
+
+/* Pagamentos */
+.payment-methods {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.payment-methods i {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    transition: transform var(--transition-fast);
+}
+
+.payment-methods i:hover {
+    transform: translateY(-3px);
+    color: var(--white);
+}
+
+/* Social */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    /* Remove o underline */
+    color: var(--white);
+    transition: all var(--transition-fast);
 }
 
 .social-links a:hover {
     transform: translateY(-3px);
-    text-decoration: none;
-    /* Mantém sem underline mesmo no hover */
+    background: var(--accent);
 }
 
-.social-links a.facebook:hover {
-    background: #1877f2;
-    box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
-}
-
-.social-links a.instagram:hover {
-    background: #e4405f;
-    box-shadow: 0 5px 15px rgba(228, 64, 95, 0.4);
-}
-
+/* Copyright */
 .footer-bottom {
-    margin-top: 2rem;
-    /* Reduzido de 4rem */
-    padding-top: 1rem;
-    /* Reduzido de 2rem */
     text-align: center;
+    padding: 1rem;
+    background: var(--primary-dark);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-bottom p {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.85rem;
-    /* Reduzido de 0.95rem */
 }
 
-.footer-payment h3 {
-    margin-bottom: 0.8rem;
-    /* Reduzido de 1rem */
-    font-size: 1.4rem;
-    /* Ajustado para manter consistência */
-    color: var(--white);
-}
-
-.payment-methods {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.payment-methods i {
-    font-size: 1.5rem;
-    /* Reduzido de 2rem */
-    color: var(--white);
-    transition: transform var(--transition-fast);
-}
-
-.payment-methods i:hover {
-    transform: translateY(-3px);
+/* Responsividade */
+@media (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
-    footer {
-        padding: 2rem 0 1rem;
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1rem;
     }
 
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 1rem;
-        text-align: center;
+        gap: 2rem;
+        padding: 2rem 1rem;
     }
 
-    .footer-info,
-    .footer-social {
-        text-align: center;
-    }
-
-    .footer-info p {
-        justify-content: center;
-    }
-
-    .footer-info h3,
-    .footer-social h3,
-    .footer-payment h3 {
-        font-size: 1.2rem;
-        margin-bottom: 0.8rem;
-    }
-
+    .footer-info p,
+    .footer-hours .horarios,
+    .payment-methods,
     .social-links {
-        justify-content: center;
-    }
-
-    .social-links a {
-        width: 30px;
-        height: 30px;
-        font-size: 1rem;
-    }
-
-    .footer-logo {
-        height: 65px;
-        margin: 0 auto 2rem;
-    }
-
-    .footer-bottom {
-        margin-top: 1.5rem;
-    }
-
-    .footer-bottom p {
-        font-size: 0.85rem;
-    }
-
-    .payment-methods {
-        justify-content: center;
-    }
-
-    .payment-methods i {
-        font-size: 1.2rem;
+        max-width: 300px;
+        margin: 0 auto;
     }
 }
 
@@ -1829,6 +1893,7 @@ h2::after {
     background: rgba(255, 255, 255, 0.05);
     padding: 1.5rem;
     border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
 }
 
 .horario-funcionamento h4 {
@@ -1857,15 +1922,43 @@ h2::after {
     padding: 0.5rem 0;
     font-size: 0.9rem;
     color: var(--text-dark);
+    line-height: 1.4;
+    /* Adicionado para melhor espaçamento */
+}
+
+.horarios td:first-child {
+    width: 60%;
+    /* Controla a largura da primeira coluna */
 }
 
 .horarios td:last-child {
     text-align: right;
     font-weight: 500;
+    width: 40%;
+    /* Controla a largura da segunda coluna */
 }
 
 .horarios tr.fechado td {
     color: var(--accent);
+    font-weight: 500;
+}
+
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+    .horario-funcionamento {
+        padding: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .horarios td {
+        font-size: 0.85rem;
+        padding: 0.4rem 0;
+    }
+
+    .horario-funcionamento h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.6rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1877,5 +1970,10 @@ h2::after {
     .horarios td {
         font-size: 0.85rem;
         padding: 0.4rem 0;
+    }
+
+    .horario-funcionamento h4 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
     }
 }
