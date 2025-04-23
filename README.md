@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fgiannycabral.github.io%2Fclinica-petshop-colibri)](https://giannycabral.github.io/clinica-petshop-colibri)
 
-![Preview do Site](./img/preview.png)
+![Preview do Site](./img/petshop1.png)
 
 Site institucional moderno para a Clínica Veterinária e PetShop Colibri, oferecendo uma experiência digital completa para tutores de pets.
 
