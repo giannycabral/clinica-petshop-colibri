@@ -118,7 +118,7 @@ body {
 }
 
 .logo img {
-    height: 60px;
+    height: 100px;
     /* Reduzido de 200px para 60px */
     width: auto;
     display: block;
@@ -1082,8 +1082,9 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     font-weight: bold;
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
 }
 
 .whatsapp-button i {
@@ -1638,10 +1639,9 @@ footer {
     }
 
     .logo img {
-        height: 50px;
-        /* Menor em mobile */
-        margin-top: 20px;
-        margin-bottom: 20px;
+        height: 75px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     .footer-logo {
